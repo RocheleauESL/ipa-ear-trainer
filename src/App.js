@@ -1,20 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import AudioPlayer from './components/AudioPlayer/AudioPlayer';
+
+const possibleSoundArray = [
+  "p",
+  "b",
+  "c",
+]
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      url: "http://audio.com/files"
+    }
+  }
+  
+  populateOptions() {
+    //create code to choose four options with one being correct
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    return <div>
+      <AudioPlayer audioUrl={this.state.url}/>
+      <AnswerOptions>
+        <Option text={"p"} />
+        <Option text={"b"} />
+      </AnswerOptions>
+    </div>
   }
 }
 
